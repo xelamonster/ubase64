@@ -1,0 +1,7 @@
+[alias]
+bin = "build --bin ubase64"
+lib = "build --no-default-features --lib"
+bin-prod = "bin --release"
+lib-prod = "lib --release"
+run-bin = "run --bin ubase64"
+bloat-bin = "bloat --bin ubase64 --release"

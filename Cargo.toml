@@ -1,0 +1,32 @@
+[package]
+name = "ubase64"
+version = "0.0.1"
+authors = ["Alex Mullen <alex@xela.foo>"]
+categories = ["algorithms", "command-line-utilities", "encoding"]
+edition = "2021"
+keywords = ["base64", "b64", "encode", "decode", "cli", "library"]
+license = "Unlicense"
+readme = "README.md"
+repository = "https://github.com/xelamonster/ubase64"
+description = "Lightweight, simple, and configurable base64 encode and decode."
+
+[profile.release]
+opt-level = 2
+lto = "fat"
+codegen-units = 1
+
+[lib]
+name = "ubase64"
+
+[[bin]]
+name = "ubase64"
+required-features = ["binary"]
+
+[features]
+default = ["binary"]
+binary = ["clap", "miette/fancy"]
+
+[dependencies]
+clap = { version = "4.5.15", features = ["derive"], optional = true }
+miette = "7.2.0"
+thiserror = "1.0.63"
